@@ -81,4 +81,26 @@
     display: inline-block;
 } */
 
+/* External CSS */
 
+*{
+    margin: 0;
+    padding: 0;
+}
+
+
+h1{
+    color: darkred;
+    background-color:yellow;
+}
+
+/* id selctor */
+#first{
+    color: white;
+    background-color: darkred;
+}
+
+/* class selector */
+.second{
+    color: blue;
+}
