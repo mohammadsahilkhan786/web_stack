@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Web Developer Banner</title>
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: Arial, sans-serif;
+    }
+    .banner {
+      position: relative;
+      width: 100%;
+      height: 250px;
+      background-color: #000;
+      overflow: hidden;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-direction: column;
+      color: #fff;
+      text-align: center;
+    }
+    .banner::before, .banner::after {
+      content: "";
+      position: absolute;
+      top: 0;
+      bottom: 0;
+      width: 50%;
+      background: #FFD700;
+      transform: skewY(-10deg);
+      z-index: 0;
+    }
+    .banner::before {
+      left: -10%;
+    }
+    .banner::after {
+      right: -10%;
+    }
+    .content {
+      position: relative;
+      z-index: 1;
+    }
+    .name {
+      font-size: 2.5rem;
+      font-weight: bold;
+      letter-spacing: 2px;
+    }
+    .title {
+      font-size: 1.2rem;
+      margin-top: 10px;
+      letter-spacing: 3px;
+    }
+  </style>
+</head>
+<body>
+  <div class="banner">
+    <div class="content">
+      <div class="name">MD SAHIL KHAN</div>
+      <div class="title">WEB DEVELOPER</div>
+    </div>
+  </div>
+</body>
+</html>
