@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Calculator UI</title>
+  <style>
+    body {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      background: white;
+      font-family: Arial;
+    }
+    .calculator {
+      width: 260px;
+      background:grey;
+      padding: 20px;
+      border-radius: 8%;
+      box-shadow: 0 8px 15px rgba(0,0,0,0.3);
+    }
+    .display {
+      width: 100%;
+      height: 50px;
+      margin-bottom: 20px;
+      background: #111827;
+      color: white;
+      font-size: 22px;
+      text-align: right;
+      padding: 10px;
+      border-radius: 10px;
+      box-sizing: border-box;
+    }
+    .buttons {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 10px;
+    }
+    .buttons button {
+      padding: 20px;
+      font-size: 18px;
+      border: none;
+      border-radius: 10px;
+      cursor: pointer;
+      background: #8ba3ca;
+      color: white;
+      /* transition: 0.2s; */
+    }
+    /* .buttons button:hover {
+      background: #4b5563;} */
+    
+    .buttons .operator {
+      background: #f59e0b;
+      color: #000;
+    }
+    .buttons .equal {
+      background: #10b981;
+      grid-column: span 2;
+    }
+  </style>
+</head>
+<body>
+  <div class="calculator">
+    <div class="display">0</div>
+    <div class="buttons">
+      <button>AC</button>
+      <button>(←)</button>
+      <button>%</button>
+      <button class="operator">÷</button>
+      
+      <button>7</button>
+      <button>8</button>
+      <button>9</button>
+      <button class="operator">×</button>
+      
+      <button>4</button>
+      <button>5</button>
+      <button>6</button>
+      <button class="operator">−</button>
+      
+      <button>1</button>
+      <button>2</button>
+      <button>3</button>
+      <button class="operator">+</button>
+      
+      <button>0</button>
+      <button>.</button>
+      <button class="equal">=</button>
+    </div>
+  </div>
+</body>
+</html>
