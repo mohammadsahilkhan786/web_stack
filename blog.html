@@ -1,0 +1,293 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Simple WordPress-style Homepage</title>
+  <meta name="description" content="A minimal homepage inspired by WordPress.org." />
+  <style>
+    :root {
+      --bg: #2f3234;
+      --bg-alt: #2e3134;
+      --text: #0a0a0a;
+      --muted: #4e555c;
+      --light: #f7fafc;
+      --brand: #252829;      /* classic WP blue */
+      --brand-2: #202023;    /* accent */
+      --ring: 0 0 0 3px rgba(211, 214, 228, 0.25);
+      --maxw: 1100px;
+      --radius: 12px;
+      --shadow: 0 10px 30px rgba(0,0,0,.08);
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      font: 16px/1.6 system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, "Apple Color Emoji","Segoe UI Emoji";
+      color: var(--text);
+      background: #ffffff;
+    }
+    a { color: var(--brand); text-decoration: none; }
+    a:hover { text-decoration: underline; }
+    .container { width: min(var(--maxw), 92%); margin: 0 auto; }
+
+    /* Header */
+    header {
+      position: sticky; top: 0; z-index: 20;
+      background: #fff; border-bottom: 1px solid #eef2f6;
+      backdrop-filter: saturate(150%) blur(8px);
+    }
+    .nav {
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 14px 0;
+    }
+    .brand { display: flex; align-items: center; gap: 10px; font-weight: 700; }
+    .brand .logo {
+      width: 36px; height: 36px; border-radius: 50%;
+      display: grid; place-items: center; font-weight: 800; color: #fff;
+      background: radial-gradient(120% 120% at 0% 0%, var(--brand) 0%, var(--brand-2) 100%);
+    }
+    .nav ul { list-style: none; display: flex; gap: 18px; margin: 0; padding: 0; }
+    .nav a { font-weight: 600; color: #1a2b3b; }
+    .cta {
+      display: inline-block; padding: 10px 16px; border-radius: 999px; font-weight: 700;
+      background: linear-gradient(135deg, var(--brand) 0%, var(--brand-2) 100%);
+      color: #fff; border: 0; box-shadow: var(--shadow);
+    }
+    .cta:focus-visible { outline: none; box-shadow: var(--ring); }
+    .cta.secondary {
+      background: #f0f6ff; color: #1b3a5a; border: 1px solid #d8e7ff; box-shadow: none;
+    }
+
+    /* Hero */
+    .hero {
+      background: radial-gradient(1200px 600px at 50% -200px, #eaf5ff 0%, #fff 60%);
+      padding: 64px 0 32px;
+    }
+    .hero-inner { display: grid; gap: 16px; text-align: center; }
+    h1 {
+      margin: 0; font-size: clamp(28px, 4.5vw, 48px); line-height: 1.1;
+      letter-spacing: -0.02em;
+    }
+    .lead { color: var(--muted); font-size: clamp(16px, 2.4vw, 20px); }
+    .hero-actions { display: flex; gap: 12px; justify-content: center; flex-wrap: wrap; margin-top: 8px; }
+    .stats {
+      display: grid; grid-template-columns: repeat(3, minmax(0,1fr)); gap: 12px;
+      margin: 28px auto 0; max-width: 760px;
+    }
+    .stat {
+      padding: 14px; border: 1px solid #e8eef5; border-radius: var(--radius);
+      background: #fff;
+    }
+    .stat b { display: block; font-size: 20px; }
+
+    /* Features */
+    .section { padding: 56px 0; }
+    .section h2 {
+      margin: 0 0 8px; font-size: clamp(22px, 3.2vw, 32px);
+      letter-spacing: -0.01em;
+    }
+    .grid {
+      display: grid; gap: 16px;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      margin-top: 18px;
+    }
+    .card {
+      border: 1px solid #e8eef5; border-radius: var(--radius); background: #fff;
+      padding: 18px; box-shadow: var(--shadow);
+    }
+    .card h3 { margin: 0 0 6px; font-size: 18px; }
+    .pill {
+      display: inline-block; padding: 4px 10px; border-radius: 999px;
+      background: #eef6ff; color: #1b3a5a; font-size: 12px; font-weight: 700;
+      border: 1px solid #d8e7ff;
+    }
+
+    /* Showcase */
+    .showcase {
+      background: linear-gradient(180deg, #fbfdff 0%, #fff 100%);
+      border-top: 1px solid #eef2f6; border-bottom: 1px solid #eef2f6;
+    }
+    .site {
+      border: 1px solid #e8eef5; border-radius: var(--radius); background: #fff;
+      padding: 0; overflow: hidden; box-shadow: var(--shadow);
+    }
+    .site .thumb {
+      aspect-ratio: 16/9; background: linear-gradient(135deg, #dbeafe, #f1f5f9);
+      display: grid; place-items: center; font-weight: 800; color: #1e293b;
+    }
+    .site .meta { padding: 14px; }
+
+    /* Testimonial */
+    .quote {
+      border-left: 4px solid var(--brand);
+      padding: 10px 0 10px 14px;
+      color: #2b3b4b;
+      background: #ffffff;
+    }
+
+    /* Footer */
+    footer {
+      background: var(--bg); color: #d7e2ec; padding: 32px 0;
+      margin-top: 24px;
+    }
+    .foot {
+      display: grid; gap: 14px;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    }
+    .foot a { color: #c7d8ea; }
+    .copyright {
+      margin-top: 18px; font-size: 14px; color: #a9bfd3;
+      border-top: 1px solid #123655; padding-top: 16px;
+    }
+
+    /* Small helper utilities */
+    .center { text-align: center; }
+    .muted { color: var(--muted); }
+  </style>
+</head>
+<body>
+  <!-- Header -->
+  <header>
+    <div class="container nav" role="navigation" aria-label="Main">
+      <div class="brand">
+        <div class="logo" aria-hidden="true">W</div>
+        <span>WordPress.org</span>
+      </div>
+      <nav aria-label="Primary">
+        <ul>
+          <li><a href="#features">Features</a></li>
+          <li><a href="#showcase">Showcase</a></li>
+          <li><a href="#community">Community</a></li>
+          <li><a href="#download" class="cta">Download</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Hero -->
+  <section class="hero">
+    <div class="container hero-inner">
+      <p class="pill" aria-label="Open Source">Open Source</p>
+      <h1>WordPress</h1>
+      <p class="lead">
+        The platform that powers a big chunk of the web. Build anything—from a blog to a business site—
+        using themes, plugins, and blocks. This is a lightweight static mockup.
+      </p>
+      <div class="hero-actions">
+        <a class="cta" href="#download">Get WordPress</a>
+        <a class="cta secondary" href="#features">Explore Features</a>
+      </div>
+
+      <div class="stats" aria-label="Key stats">
+        <div class="stat"><b>60k+</b><span class="muted">Plugins</span></div>
+        <div class="stat"><b>12k+</b><span class="muted">Themes</span></div>
+        <div class="stat"><b>200+</b><span class="muted">Locales</span></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Features -->
+  <section id="features" class="section">
+    <div class="container">
+      <h2>Powerful features, simple workflow</h2>
+      <p class="muted">Everything you need to design, publish, and grow.</p>
+      <div class="grid" role="list">
+        <article class="card" role="listitem">
+          <h3>Block Editor</h3>
+          <p>Create pages by stacking blocks—text, images, galleries, and more.</p>
+        </article>
+        <article class="card" role="listitem">
+          <h3>Themes</h3>
+          <p>Start fast with a theme, then customize every detail.</p>
+        </article>
+        <article class="card" role="listitem">
+          <h3>Plugins</h3>
+          <p>Extend your site with SEO, e-commerce, forms, and analytics.</p>
+        </article>
+        <article class="card" role="listitem">
+          <h3>Security & Performance</h3>
+          <p>Best practices baked in—updates, roles, media optimization.</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- Showcase -->
+  <section id="showcase" class="section showcase">
+    <div class="container">
+      <h2>Made with WordPress</h2>
+      <div class="grid">
+        <figure class="site">
+          <div class="thumb">Site Preview</div>
+          <figcaption class="meta">
+            <strong>Creative Studio</strong><br />
+            <span class="muted">Portfolio theme with bold typography</span>
+          </figcaption>
+        </figure>
+        <figure class="site">
+          <div class="thumb">Site Preview</div>
+          <figcaption class="meta">
+            <strong>Local Café</strong><br />
+            <span class="muted">Menu, bookings, and a photo gallery</span>
+          </figcaption>
+        </figure>
+        <figure class="site">
+          <div class="thumb">Site Preview</div>
+          <figcaption class="meta">
+            <strong>Tech Blog</strong><br />
+            <span class="muted">Long-form posts and code snippets</span>
+          </figcaption>
+        </figure>
+      </div>
+    </div>
+  </section>
+
+  <!-- Community / Testimonial -->
+  <section id="community" class="section">
+    <div class="container">
+      <h2>Global community</h2>
+      <p class="quote">“I launched my site in an afternoon and kept improving it with blocks and plugins.”</p>
+      <p class="muted">Join meetups, contribute code, translate strings, or help others in support forums.</p>
+    </div>
+  </section>
+
+  <!-- Download -->
+  <section id="download" class="section">
+    <div class="container center">
+      <h2>Download WordPress</h2>
+      <p class="muted">Self-host the latest version and own your content.</p>
+      <a class="cta" href="#">Download .zip</a>
+      <p class="muted" style="margin-top:10px;">Prefer managed hosting? Pick a host and install with one click.</p>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer role="contentinfo">
+    <div class="container">
+      <div class="foot">
+        <div>
+          <strong>Learn</strong><br />
+          <a href="#">Documentation</a><br />
+          <a href="#">Developer Resources</a>
+        </div>
+        <div>
+          <strong>Community</strong><br />
+          <a href="#">Make WordPress</a><br />
+          <a href="#">Meetups</a>
+        </div>
+        <div>
+          <strong>Get Involved</strong><br />
+          <a href="#">Translation</a><br />
+          <a href="#">Support</a>
+        </div>
+        <div>
+          <strong>More</strong><br />
+          <a href="#">Themes</a><br />
+          <a href="#">Plugins</a>
+        </div>
+      </div>
+      <p class="copyright">© 2025 Example. Not affiliated with WordPress.org.</p>
+    </div>
+  </footer>
+</body>
+</html>

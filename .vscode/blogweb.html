@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Blog Website</title>
+  <style>
+    * {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: Arial, sans-serif;
+}
+
+/* Navbar */
+header {
+  background: #222;
+  color: #fff;
+  padding: 10px 20px;
+}
+
+.navbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.logo img {
+  height: 40px;
+}
+
+/* Nav links */
+.navlinks a {
+  color: white;
+  text-decoration: none;
+  margin: 0 10px;
+  font-weight: bold;
+}
+
+.navlinks a:hover {
+  color: #ff9800;
+}
+
+/* Searchbar */
+.searchbar {
+  display: flex;
+  align-items: center;
+}
+
+.searchbar input {
+  padding: 5px;
+  border: none;
+  border-radius: 4px;
+}
+
+.searchbar button {
+  margin-left: 5px;
+  padding: 5px 10px;
+  border: none;
+  background: #ff9800;
+  color: white;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.searchbar button:hover {
+  background: #e68900;
+}
+
+/* Signup Buttons */
+.signup button {
+  margin-left: 10px;
+  padding: 5px 12px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  background: #4caf50;
+  color: white;
+  font-weight: bold;
+}
+
+.signup button:nth-child(1) {
+  background: #2196f3;
+}
+
+.signup button:hover {
+  opacity: 0.8;
+}
+
+/* Main Sections */
+main {
+  padding: 20px;
+}
+
+.section {
+  background: #f4f4f4;
+  border: 1px solid #ddd;
+  padding: 20px;
+  margin: 20px 0;
+  border-radius: 8px;
+  text-align: center;
+}
+
+.section img {
+  width: 100%;
+  max-height: 300px;
+  object-fit: cover;
+  border-radius: 8px;
+  margin-bottom: 15px;
+}
+
+.section h2 {
+  margin-bottom: 10px;
+  color: #333;
+}
+
+.section p {
+  color: #555;
+}
+
+/* Footer */
+footer {
+  background: #222;
+  color: white;
+  text-align: center;
+  padding: 15px;
+  margin-top: 20px;
+}
+  </style>
+</head>
+<body>
+
+  <header>
+    <nav class="navbar">
+      
+      <div class="logo">
+        <a href="#"><img src="https://img.icons8.com/fluency/96/blogger.png" alt="Logo"></a>
+      </div>
+
+      
+      <div class="navlinks">
+        <a href="#">Home</a>
+        <a href="#">Blogs</a>
+        <a href="#">About</a>
+        <a href="#">Services</a>
+        <a href="#">Contact</a>
+      </div>
+
+      
+      <div class="searchbar">
+        <input type="text" placeholder="Search...">
+        <button>Search</button>
+      </div>
+
+      
+      <div class="signup">
+        <button>Login</button>
+        <button>Register</button>
+      </div>
+    </nav>
+  </header>
+
+  
+  <main>
+    <section class="section">
+      <img src="https://picsum.photos/800/300?random=1" alt="Latest Blogs">
+      <h2>Latest Blogs</h2>
+      <p>Read our latest and trending blog posts here.</p>
+    </section>
+
+    <section class="section">
+      <img src="https://picsum.photos/800/300?random=2" alt="Popular Blogs">
+      <h2>Popular Blogs</h2>
+      <p>Check out what's popular among our readers.</p>
+    </section>
+
+    <section class="section">
+      <img src="https://picsum.photos/800/300?random=3" alt="Categories">
+      <h2>Categories</h2>
+      <p>Explore blogs from different categories.</p>
+    </section>
+
+    <section class="section">
+      <img src="https://picsum.photos/800/300?random=4" alt="Featured Writers">
+      <h2>Featured Writers</h2>
+      <p>Meet our top writers and their work.</p>
+    </section>
+
+    <section class="section">
+      <img src="https://picsum.photos/800/300?random=5" alt="Newsletter">
+      <h2>Newsletter</h2>
+      <p>Subscribe to get updates directly in your inbox.</p>
+    </section>
+  </main>
+
+  
+  <footer>
+    <p>© 2025 My Blog Website.</p>
+  </footer>
+</body>
+</html>
